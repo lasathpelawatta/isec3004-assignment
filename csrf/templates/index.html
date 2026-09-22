@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ISEC3004 CSRF Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 760px; margin: 60px auto; line-height: 1.5; padding: 0 20px; }
+    .card { border: 1px solid #ccc; border-radius: 10px; padding: 24px; }
+    a { display: inline-block; margin-right: 12px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>ISEC3004 CSRF Vulnerable Demo</h1>
+    <p>This is a local educational application using fake data.</p>
+    {% if logged_in %}
+      <a href="{{ url_for('profile') }}">Open profile</a>
+      <a href="{{ url_for('logout') }}">Log out</a>
+    {% else %}
+      <a href="{{ url_for('login') }}">Log in</a>
+    {% endif %}
+  </div>
+</body>
+</html>
