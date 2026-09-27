@@ -1,6 +1,9 @@
+from flask_wtf.csrf import CSRFProtect
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'a-very-secure-random-secret-key'
+csrf = CSRFProtect(app)
 app.config.update(
     SECRET_KEY="kan21-local-demo-secret",
     SESSION_COOKIE_HTTPONLY=True,
